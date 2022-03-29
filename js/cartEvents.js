@@ -5,6 +5,7 @@ const carrito = document.getElementById('carrito');
 const productos = document.getElementById('lista-productos');
 const listaProductos = document.querySelector('#lista-carrito tbody');
 const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
+const procesarPedidoBtn = document.getElementById('procesar-pedido');
 
 cargarEventos();
 
@@ -20,4 +21,7 @@ function cargarEventos() {
 
     // Evento para ingresar los datos del localStorage al recargar/volver:
     document.addEventListener('DOMContentLoaded', carro.leerLocalStorage());
+
+    // Evento para que al finalizar la compra nos lleve a una página de confirmación de compra:
+    procesarPedidoBtn.addEventListener('click', (e) => {carro.procesarPedido(e)});
 }

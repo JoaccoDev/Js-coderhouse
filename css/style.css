@@ -27,7 +27,7 @@ body {
 }
 #home, #about, #pricing, #contact {
     width: 90%;
-    min-height: 50vh;
+    min-height: 10vh;
     margin: 0 auto;
     padding: 100px 0 0 0;
 }

@@ -13,10 +13,10 @@ class Carrito {
     // Recibir los datos del producto:
     leerDatosProducto(producto) {
         const infoProducto = {
+            imagen: producto.querySelector('img').src,
             nombre: producto.querySelector('h4').textContent,
             precio: producto.querySelector('.precio span').textContent,
             id: producto.querySelector('a').getAttribute('data-id'),
-            cantidad: 1
         }
         /* Dado que los "productos" que mi sitio web vende son servicios no habrá cantidades.
         Así que solamente prevenimos productos duplicados en el carrito, sin aumentar la cantidad del mismo: */
@@ -28,8 +28,21 @@ class Carrito {
             }
         });
         if(productosLS === infoProducto.id) {
-            console.log('Este producto ya está agregado');
+            // Advertencia con SweetAlert:
+            Swal.fire({
+                icon: 'info',
+                title: 'Oops...',
+                footer: 'This product is already in your cart.',
+                timer: 2300,
+                showConfirmButton: false
+            });
         } else {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                timer: 800,
+                showConfirmButton: false
+            });
             this.insertarCarrito(infoProducto);
         }
     }
@@ -63,6 +76,7 @@ class Carrito {
             productoID = producto.querySelector('a').getAttribute('data-id');
         }
         this.eliminarProductoLocalStorage(productoID);
+        this.calcularTotal();
     }
 
     // Función para eliminar todos los productos del carrito:
@@ -132,5 +146,61 @@ class Carrito {
             `;
             listaProductos.appendChild(row);
         })
+    }
+
+    // Mismo método que arriba pero modificado con otro DOM para usar en 'checkout.html':
+    leerLocalStorageCheckout() {
+        let productosLS;
+        productosLS = this.obtenerProductoLocalStorage();
+        productosLS.forEach(function(producto) {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>
+                    <img src="${producto.imagen}" width=100px>
+                <td>
+                    ${producto.nombre}
+                </td>
+                <td>
+                    ${producto.precio}.00 €
+                </td>
+                <td>
+                    <a href="#" class="borrar-producto fa-solid fa-trash" data-id="${producto.id}">
+                </td>
+            `;
+            listaCompra.appendChild(row);
+        })
+    }
+
+    // Función para finalizar compra:
+    procesarPedido(e) {
+        e.preventDefault();
+        if(this.obtenerProductoLocalStorage().length === 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                footer: 'Your cart is empty.',
+                timer: 1800,
+                showConfirmButton: false
+            });
+        } else {
+            location.href = "cart.html";
+        }
+    }
+
+    // Método para calcular el total del checkout:
+    calcularTotal() {
+        let productoLS;
+        let total = 0, subtotal = 0, iva = 0;
+        productoLS = this.obtenerProductoLocalStorage();
+        for (let i = 0; i < productoLS.length; i++) {
+            let element = Number(productoLS[i].precio);
+            subtotal = subtotal + element;
+        }
+        iva = parseFloat(subtotal * 0.21);
+        total = subtotal + iva;
+
+        document.getElementById('subtotal').innerHTML = subtotal.toFixed(2) + " €";
+        document.getElementById('iva').innerHTML = iva.toFixed(2) + " €";
+        document.getElementById('total').innerHTML = total.toFixed(2) + " €";
     }
 }
