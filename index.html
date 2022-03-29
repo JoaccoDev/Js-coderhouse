@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FavIcon (https://favicon.io/favicon-generator/) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/9426ee65de.js" crossorigin="anonymous"></script>
+    <!-- Title -->
+    <title>Joaquin Godoy - CoderHouse #25420</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#home">Joaquin Godoy</a>
+                <i class="fa-solid fa-cart-shopping carrito-icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"></i>
+                <div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                    <div id="carrito" aria-labelledby="navbarCollapse">
+                        <table id="lista-carrito" class="table bg-dark text-white">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <a href="#" id="vaciar-carrito" class="btn btn-danger btn-block">Empty cart</a>
+                        <a href="#" id="procesar-pedido" class="btn btn-primary btn-block">Checkout</a>
+                    </div>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end navbar-dark bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+                        <button type="button" class="btn-close text-black bg-white pr-3" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#about">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#pricing">Pricing</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                                <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="circles">
+    <!--        <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+            <div class="circle circle-3"></div>
+            <div class="circle circle-4"></div>
+            <div class="circle circle-5"></div>
+            <div class="circle circle-6"></div>
+            <div class="circle circle-7"></div>
+            <div class="circle circle-8"></div> -->
+        </div>
+        <section id="home">
+            <h2>Home page</h2>
+            <div></div>
+        </section>
+        <section id="about">
+            <div></div>
+        </section>
+        <section id="pricing">
+            <div class="pricing-container">
+                <h2>Pricing</h2>
+                <p>Choose between the services that best fit your needs.</p>
+            </div>
+            <div class="pricing-container" id="lista-productos">
+                <div class="card-deck mb-2 text-center">
+                    <div class="card mb-4 shadow-sm bg-dark text-white">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-bold">Web design</h4>
+                        </div>
+                        <div class="card-body">
+                            <img src="./assets/img/design.svg" class="card-img-top pricing-img">
+                            <h1 class="card-title pricing-card-title precio"><span class="">50</span> €</h1>
+                            <p class="card-text">If you need your brand to have a personal touch or you want to completely remodel its design and appearance to boost it.</p>
+                            <a href="" class="btn btn-block btn-primary agregar-carrito" data-id="1">Add to cart</a>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">1 to 3 weeks (estimated time).</small> <br>
+                            <small class="text-muted">Pack includes: Scalable sizes logo, multipurpose color palette and full web design.</small>
+                        </div>
+                    </div>
+                    <div class="card mb-4 shadow-sm bg-dark text-white">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-bold">Web development</h4>
+                        </div>
+                        <div class="card-body">
+                            <img src="./assets/img/development.svg" class="card-img-top pricing-img">
+                            <h1 class="card-title pricing-card-title precio"><span class="">75</span> €</h1>
+                            <p class="card-text">If you want to start on the internet to grow your brand, increase your scope and gain new customers.</p>
+                            <a href="" class="btn btn-block btn-primary agregar-carrito" data-id="2">Add to cart</a>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">2 to 6 weeks (estimated time).</small> <br>
+                            <small class="text-muted">Pack includes: Web development, maintenance, SEO and features addition over time.</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-deck mb-2 text-center">
+                    <div class="card mb-4 shadow-sm bg-dark text-white">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-bold">Hosting services</h4>
+                        </div>
+                        <div class="card-body">
+                            <img src="./assets/img/server.svg" class="card-img-top pricing-img">
+                            <h1 class="card-title pricing-card-title precio"><span class="">10</span> €</h1>
+                            <p class="card-text">If you already have a website and want us to host it with the best connection all over the world and online service 24/7.</p>
+                            <a href="" class="btn btn-block btn-primary agregar-carrito" data-id="3">Add to cart</a>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">1 to 2 weeks (estimated time).</small> <br>
+                            <small class="text-muted">Pack includes: Website hosting on last generation servers.</small>
+                        </div>
+                    </div>
+                    <div class="card mb-4 shadow-sm bg-dark text-white">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-bold">Premium pack</h4>
+                        </div>
+                        <div class="card-body">
+                            <img src="./assets/img/premium.svg" class="card-img-top pricing-img">
+                            <h1 class="card-title pricing-card-title precio"><span class="">99</span> €</h1>
+                            <p class="card-text">The all-in-one pack. Includes the three services mentioned above with a considerable discount offer.</p>
+                            <a href="" class="btn btn-block btn-primary agregar-carrito" data-id="4">Add to cart</a>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">3 to 8 weeks (estimated time).</small> <br>
+                            <small class="text-muted">Pack includes: Web design, web development and hosting services.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Checkout
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content bg-dark text-white">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Successful purchase.</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>Thanks for your trust!</h5>
+                        <p>We will contact you shortly.</p> <br>
+                        <h6>Joaquin Godoy © 2022</h6>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <form action="#"></form>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-dark text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
+        <!-- Twitter -->
+        <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+        <!-- Google -->
+        <a class="btn btn-primary btn-floating m-1" style="background-color: #dd4b39" href="#!" role="button"><i class="fab fa-google"></i></a>
+        <!-- Instagram -->
+        <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac" href="#!" role="button"><i class="fab fa-instagram"></i></a>
+        <!-- Linkedin -->
+        <a class="btn btn-primary btn-floating m-1" style="background-color: #0082ca" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
+        <!-- Github -->
+        <a class="btn btn-primary btn-floating m-1" style="background-color: #333333" href="#!" role="button"><i class="fab fa-github"></i></a>
+      </section>
+      <!-- Section: Links -->
+      <section class="">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Links</h5>
+  
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="#!" class="text-white">Link 1</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Link 2</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Link 3</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Link 4</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Links</h5>
+  
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="#!" class="text-white">Link 1</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Link 2</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Link 3</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Link 4</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      © 2020 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    </footer>
+    <!-- Main JS -->
+    <script src="./js/cart.js"></script>
+    <script src="./js/order.js"></script>
+    <!-- Bootstrap JS & Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
