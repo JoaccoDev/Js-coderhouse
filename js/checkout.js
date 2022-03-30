@@ -45,8 +45,10 @@ function procesarCompra(e) {
             position: 'center',
             icon: 'success',
             title: 'Thank you for your purchase!'
-        })
+        });
         compra.vaciarLocalStorage();
-        window.location = "index.html";
+        setTimeout(() => {
+            window.location = "index.html";
+        }, 2000);
     }
 }
